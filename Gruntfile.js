@@ -1,5 +1,6 @@
 module.exports = function (grunt) {
-    var fs = require('fs');
+    var process = require('child_process'),
+        _ = require('underscore');
 
     grunt.loadNpmTasks('grunt-exec');
     grunt.loadNpmTasks("grunt-update-submodules");
@@ -42,4 +43,12 @@ module.exports = function (grunt) {
 
     // Default task.
     grunt.registerTask('default', ['update_submodules', 'exec']);
+    grunt.registerTask('clone', function () {
+        var targets = Object.keys(this.flags),
+            cmd = 'cp -R app <%= dest %>';
+
+        targets.forEach(function (target) {
+            process.exec(_.template(cmd, { dest: target }));
+        });
+    });
 };
