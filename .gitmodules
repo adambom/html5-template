@@ -10,3 +10,6 @@
 [submodule "submodules/lodash"]
 	path = submodules/lodash
 	url = git@github.com:bestiejs/lodash.git
+[submodule "submodules/modernizr"]
+	path = submodules/modernizr
+	url = git@github.com:Modernizr/Modernizr.git
