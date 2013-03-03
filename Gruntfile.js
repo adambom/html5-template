@@ -10,7 +10,7 @@ module.exports = function (grunt) {
         exec: {
 
             'copy-bootstrap-less': {
-                cmd: 'mkdir -p app/src/styles/bootstrap && cp -R find submodules/bootstrap/less/*.less -exec cp {} app/src/styles/bootstrap \\;'
+                cmd: 'mkdir -p app/src/styles/bootstrap && find submodules/bootstrap/less/*.less -exec cp {} app/src/styles/bootstrap \\;'
             },
 
             'copy-bootstrap-js': {
@@ -22,11 +22,11 @@ module.exports = function (grunt) {
             },
 
             'copy-jquery': {
-                cmd: 'cd submodules/jquery; git checkout $(git tag | grep "1\\.9.[0-9]" | tail -1); npm install && grunt; mkdir -p app/public/js/vendor/jquery && find submodules/jquery/dist/*.js -exec cp {} app/public/js/vendor/jquery \\; checkout master;'
+                cmd: 'cd submodules/jquery; git checkout $(git tag | grep "1\\.9.[0-9]" | tail -1); npm install && grunt; git checkout master; cd ../../; mkdir -p app/public/js/vendor/jquery && find submodules/jquery/dist/*.js -exec cp {} app/public/js/vendor/jquery \\;;'
             },
 
             'copy-modernizr': {
-                cmd: 'cd submodules/modernizr; git checkout $(git tag | tail -1); npm install && grunt; mkdir -p app/public/js/vendor/modernizr && find submodules/modernizr/dist/*.js | while read arg1; do cp "$arg1" $(awk \'{ sub(/-build/, ""); print "app/public/js/vendor/modernizr/"$0 }\');'
+                cmd: 'cd submodules/modernizr; npm install && grunt; cd ../../; mkdir -p app/public/js/vendor/modernizr && find submodules/modernizr/dist/*.js | while read arg1; do cp "$arg1" $(echo $arg1 | awk -F "/" \'{ print $NF }\' | awk \'{ sub(/-build/, ""); print "app/public/js/vendor/modernizr/"$0 }\'); done;'
             },
 
             'copy-lodash': {
