@@ -1,4 +1,4 @@
-#Usage:
+#Usage
 
 ###Update template: 
 
@@ -6,7 +6,7 @@
 npm install && grunt
 ```
 
-###Clone to new project
+###Clone to new project:
 
 ```bash
 grunt clone:path/to/project
