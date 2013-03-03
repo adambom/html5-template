@@ -1,0 +1,12 @@
+[submodule "submodules/jquery"]
+	path = submodules/jquery
+	url = git@github.com:jquery/jquery.git
+[submodule "submodules/backbone"]
+	path = submodules/backbone
+	url = https://github.com/documentcloud/backbone
+[submodule "submodules/bootstrap"]
+	path = submodules/bootstrap
+	url = git@github.com:twitter/bootstrap.git
+[submodule "submodules/lodash"]
+	path = submodules/lodash
+	url = git@github.com:bestiejs/lodash.git
