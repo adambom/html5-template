@@ -26,10 +26,6 @@ module.exports = function (grunt) {
                 cmd: 'cd submodules/jquery; git checkout $(git tag | grep "1\\.9.[0-9]" | tail -1); npm install && grunt; git checkout master; cd ../../; mkdir -p app/public/js/vendor/jquery && find submodules/jquery/dist/*.js -exec cp {} app/public/js/vendor/jquery \\;;'
             },
 
-            'copy-modernizr': {
-                cmd: 'cd submodules/modernizr; npm install && grunt; cd ../../; mkdir -p app/public/js/vendor/modernizr && find submodules/modernizr/dist/*.js | while read arg1; do cp "$arg1" $(echo $arg1 | awk -F "/" \'{ print $NF }\' | awk \'{ sub(/-build/, ""); print "app/public/js/vendor/modernizr/"$0 }\'); done;'
-            },
-
             'copy-lodash': {
                 cmd: 'mkdir -p app/public/js/vendor/lodash && find submodules/lodash/dist/*.js -exec cp {} app/public/js/vendor/lodash \\;'
             },
