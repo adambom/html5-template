@@ -12,7 +12,7 @@ module.exports = function (grunt) {
                 tasks: ['less:dev']
             },
             js: {
-                files: ['src/scripts/**/*.js'],
+                files: ['pubic/js/vendor/**/*.js', 'src/scripts/**/*.js'],
                 tasks: ['concat:plugins', 'concat:main']
             }
         },
