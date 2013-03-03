@@ -34,7 +34,10 @@ module.exports = function (grunt) {
         concat: {
             plugins: {
                 src: [
-                    'public/js/vendor/bootstrap/*.js'
+                    'public/js/vendor/bootstrap/bootstrap-transitions.js',
+                    'public/js/vendor/bootstrap/bootstrap-modal.js',
+                    'public/js/vendor/bootstrap/bootstrap-dropdown.js',
+                    'public/js/vendor/bootstrap/bootstrap-collapse.js'
                 ],
                 dest: 'public/js/plugins.js'
             },
