@@ -1,7 +1,13 @@
-**Usage:**
+#Usage:
 
-Update template: 
-`npm install && grunt`
+###Update template: 
 
-Clone to new project
-`grunt clone:path/to/project`
+```bash
+npm install && grunt
+```
+
+###Clone to new project
+
+```bash
+grunt clone:path/to/project
+```
